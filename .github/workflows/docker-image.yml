@@ -14,9 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag vladafratric/nginx:$(date +%s)
-
+      #    - name: Build the Docker image
+      #      run: docker build . --file Dockerfile --tag vladafratric/nginx:$(date +%s)
+    - name: Build and push Docker Image
+      uses: mr-smithers-excellent/docker-build-push@v4
+      with:
+              image: vladafratric/nginx:$(date+%s)
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USER }} 
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
       #    - name: login to docker
       #      env:
