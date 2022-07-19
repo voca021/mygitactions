@@ -17,7 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag vladafratric/nginx:$(date +%s)
 
-  deploy to docker:    
+  deploy to docker:
     steps:
     - name: login to docker
       env:
