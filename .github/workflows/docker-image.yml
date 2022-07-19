@@ -17,8 +17,7 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag vladafratric/nginx:$(date +%s)
 
-  
-    steps:
+
     - name: login to docker
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
